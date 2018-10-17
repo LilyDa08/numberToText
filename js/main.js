@@ -1,4 +1,4 @@
-let numberUser = Number(prompt("Hello!\n" + "Type a number between 0 and 999"));
+let numberUser =prompt("Hello!\n" + "Type a number between 0 and 999");
 let numberIn = parseInt(numberUser);
 
 let unite = numberIn % 10;
@@ -16,7 +16,7 @@ function analyseNb(number) {
 
     /// CHECK FOR VALID NUMBER
 
-    if (isNaN(numberIn) || numberIn == '') {
+    if ((isNaN(numberIn) || numberIn == '' || numberIn == null ) && numberIn !== 0)  {
         alert("Type a valid number Please");
         location.reload();  /// REPLAY
     } else {
