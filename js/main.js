@@ -1,4 +1,4 @@
-let numberUser =prompt("Hello!\n" + "Type a number between 0 and 999");
+let numberUser = prompt("Hello!\n" + "Type a number between 0 and 999");
 let numberIn = parseInt(numberUser);
 
 let unite = numberIn % 10;
@@ -13,15 +13,14 @@ let arrayNb = [];
 let nbZero = 0; // in case of number = 0
 let checkValid = isNaN(numberIn); // is it a valid number ?
 
-function analyseNb(number) {
+function analyseCent(number) {
 
     /// CHECK FOR VALID NUMBER
 
-    if (checkValid === true)  {
+    if (checkValid === true) {
         alert("Type a valid number Please");
-        location.reload();  /// REPLAY
+        location.reload(); /// REPLAY
     } else {
-        /// CENTAINE 
         switch (centaine) {
             case 0:
                 centText = "zero";
@@ -55,17 +54,91 @@ function analyseNb(number) {
                 centText = "Nine-hundreds";
                 break;
         }
-        arrayNb.push(centText);
+        arrayNb[0] = centText;
+        analyseUnit(number)
+    }
+}       /// CENTAINE 
 
-        /// DIZAINE
+function analyseUnit(number) {
+    switch (unite) {
+        case 0:
+            unitText = "zero";
+            nbZero++;
+            break;
+        case 1:
+            unitText = "one";
+            break;
+        case 2:
+            unitText = "two";
+            break;
+        case 3:
+            unitText = "three";
+            break;
+        case 4:
+            unitText = "four";
+            break;
+        case 5:
+            unitText = "five";
+            break;
+        case 6:
+            unitText = "six";
+            break;
+        case 7:
+            unitText = "seven";
+            break;
+        case 8:
+            unitText = "eight";
+            break;
+        case 9:
+            unitText = "nine";
+            break;
+    }
+    arrayNb[2] = unitText;
+    analyseDiz(number);
+}       /// UNITE
 
+function analyseDiz(number) {
         switch (dizaine) {
             case 0:
                 dizText = "zero";
                 nbZero++;
                 break;
             case 1:
-                dizText = "ten";
+                if (unitText !== "zero") {
+                    switch (unitText) {
+                        case "one":
+                            dizText = "eleven";
+                            break;
+                        case "two":
+                            dizText = "twelve";
+                            break;
+                        case "three":
+                            dizText = "thirteen";
+                            break;
+                        case "four":
+                            dizText = "fourteen";
+                            break;
+                        case "five":
+                            dizText = "fifteen";
+                            break;
+                        case "six":
+                            dizText = "sixteen";
+                            break;
+                        case "seven":
+                            dizText = "seventeen";
+                            break;
+                        case "eight":
+                            dizText = "eighteen";
+                            break;
+                        case "nine":
+                            dizText = "nineteen";
+                     
+                    } 
+                    arrayNb[2] ="zero";
+                    
+                } else {
+                    dizText = "ten";   
+                }
                 break;
             case 2:
                 dizText = "twenty";
@@ -92,70 +165,25 @@ function analyseNb(number) {
                 dizText = "ninety";
                 break;
         }
+    arrayNb[1] = dizText;
 
-        arrayNb.push(dizText);
+    joinText();
+};      /// DIZAINE
 
-        /// UNITE
-
-        switch (unite) {
-            case 0:
-                unitText = "zero";
-                nbZero++;
-                break;
-            case 1:
-                unitText = "one";
-                break;
-            case 2:
-                unitText = "two";
-                break;
-            case 3:
-                unitText = "three";
-                break;
-            case 4:
-                unitText = "four";
-                break;
-            case 5:
-                unitText = "five";
-                break;
-            case 6:
-                unitText = "six";
-                break;
-            case 7:
-                unitText = "seven";
-                break;
-            case 8:
-                unitText = "eight";
-                break;
-            case 9:
-                unitText = "nine";
-                break;
-        }
-        arrayNb.push(unitText);
-
-        joinText();
-    }
-};
-
-/// ARRAY CLEAN AND JOIN
-
-function joinText() {
+function joinText() {           /// ARRAY CLEAN AND JOIN
 
     let filterArray = arrayNb.filter(function (empty) {
-        return (empty !== (undefined || "zero" || ''));
+        return (empty !== "zero");
     });
 
     let numberText = filterArray.join('-');
 
-    /// RESULT ALERT
-
-    if (nbZero == 3) {
+    if (nbZero == 3) {          /// RESULT ALERT
         alert("Your number is Zero");
     } else {
         alert("Your number is " + numberText);
     }
-    location.reload();  /// REPLAY
+    location.reload(); /// REPLAY
 }
 
-/// FUNCTION CALL
-
-analyseNb(numberIn);
+analyseCent(numberIn);      /// FUNCTION CALL
