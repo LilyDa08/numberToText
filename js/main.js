@@ -13,11 +13,9 @@ let arrayNb = [];
 let nbZero = 0;     // in case of number = 0
 let checkValid = isNaN(numberIn);   // is it a valid number ?
 
-function analyseCent(number) {        /// CENTAINE 
-
+function analyseCent(number) {        /// CENTAINE
     /// CHECK FOR VALID NUMBER
-
-    if (checkValid === true) {
+    if (checkValid === true || numberIn >= 1000 ) {
         alert("Type a valid number Please");
         location.reload();          /// REPLAY
     } else {
