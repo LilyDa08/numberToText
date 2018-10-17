@@ -30,28 +30,28 @@ function analyseCent(number) {        /// CENTAINE
                 centText = "One-hundred";
                 break;
             case 2:
-                centText = "Two-hundreds";
+                centText = "Two-hundred";
                 break;
             case 3:
-                centText = "Three-hundreds";
+                centText = "Three-hundred";
                 break;
             case 4:
-                centText = "Four-hundreds";
+                centText = "Four-hundred";
                 break;
             case 5:
-                centText = "Five-hundreds";
+                centText = "Five-hundred";
                 break;
             case 6:
-                centText = "Six-Hundreds";
+                centText = "Six-Hundred";
                 break;
             case 7:
-                centText = "Seven-hundreds";
+                centText = "Seven-hundred";
                 break;
             case 8:
-                centText = "Eight-hundreds";
+                centText = "Eight-hundred";
                 break;
             case 9:
-                centText = "Nine-hundreds";
+                centText = "Nine-hundred";
         }
         arrayNb[0] = centText;
         analyseUnit(number)
@@ -130,7 +130,6 @@ function analyseDiz(number) {       /// DIZAINE
                             break;
                         case "nine":
                             dizText = "nineteen";
-                     
                     } 
                     arrayNb[2] ="zero";
                     
