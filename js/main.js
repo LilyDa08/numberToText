@@ -10,16 +10,16 @@ let dizText;
 let centText;
 
 let arrayNb = [];
-let nbZero = 0; // in case of number = 0
-let checkValid = isNaN(numberIn); // is it a valid number ?
+let nbZero = 0;     // in case of number = 0
+let checkValid = isNaN(numberIn);   // is it a valid number ?
 
-function analyseCent(number) {
+function analyseCent(number) {        /// CENTAINE 
 
     /// CHECK FOR VALID NUMBER
 
     if (checkValid === true) {
         alert("Type a valid number Please");
-        location.reload(); /// REPLAY
+        location.reload();          /// REPLAY
     } else {
         switch (centaine) {
             case 0:
@@ -52,14 +52,13 @@ function analyseCent(number) {
                 break;
             case 9:
                 centText = "Nine-hundreds";
-                break;
         }
         arrayNb[0] = centText;
         analyseUnit(number)
     }
-}       /// CENTAINE 
+}
 
-function analyseUnit(number) {
+function analyseUnit(number) {        /// UNITE
     switch (unite) {
         case 0:
             unitText = "zero";
@@ -91,13 +90,12 @@ function analyseUnit(number) {
             break;
         case 9:
             unitText = "nine";
-            break;
     }
     arrayNb[2] = unitText;
     analyseDiz(number);
-}       /// UNITE
+}
 
-function analyseDiz(number) {
+function analyseDiz(number) {       /// DIZAINE
         switch (dizaine) {
             case 0:
                 dizText = "zero";
@@ -163,12 +161,10 @@ function analyseDiz(number) {
                 break;
             case 9:
                 dizText = "ninety";
-                break;
         }
     arrayNb[1] = dizText;
-
     joinText();
-};      /// DIZAINE
+}
 
 function joinText() {           /// ARRAY CLEAN AND JOIN
 
@@ -183,7 +179,7 @@ function joinText() {           /// ARRAY CLEAN AND JOIN
     } else {
         alert("Your number is " + numberText);
     }
-    location.reload(); /// REPLAY
+    location.reload();          /// REPLAY
 }
 
-analyseCent(numberIn);      /// FUNCTION CALL
+analyseCent(numberIn);          /// FUNCTION CALL
