@@ -11,12 +11,13 @@ let centText;
 
 let arrayNb = [];
 let nbZero = 0; // in case of number = 0
+let checkValid = isNaN(numberIn); // is it a valid number ?
 
 function analyseNb(number) {
 
     /// CHECK FOR VALID NUMBER
 
-    if ((isNaN(numberIn) || numberIn == '' || numberIn == null ) && numberIn !== 0)  {
+    if (checkValid === true)  {
         alert("Type a valid number Please");
         location.reload();  /// REPLAY
     } else {
@@ -134,7 +135,6 @@ function analyseNb(number) {
         joinText();
     }
 };
-
 
 /// ARRAY CLEAN AND JOIN
 
